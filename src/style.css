@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 2px solid red; */
+}
+
+:root {
+    --pink: #ed1250;
+    --pale-yellow: #fff6da;
+    --dark-blue: #042f4b;
+    --orange: #fbc99d;
+    --fredoka: "Fredoka One", cursive;
+    --poppins: "Poppins", sans-serif;
+    --sansita: "Sansita Swashed", cursive;
+  }
+
+
+
+header{
+    background-color: var(--dark-blue);
+    width: 100%;
+    min-height: 8vh;
+    padding: 1rem;
+    color: var(--pink);
+    font-size: 2rem;
+    font-family: var(--fredoka);
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.selection-list{
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    font-size: 1.4rem;
+
+}
+
+.selection-list li{
+    color: var(--pale-yellow);
+    transition: 0.3s ease;
+
+}
+
+a{
+    text-decoration: none;
+}
+
+.selection-list li:hover{
+    color: var(--pink);
+}
+
+body{
+    background: url('/restaurant-project/images/food.jpg') no-repeat center center fixed;
+}
+
+#home{
+    height: 92vh;
+    background: url('/restaurant-project/images/food.jpg') no-repeat center center fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#home h1{
+    background: linear-gradient(to right, var(--pink) 0%, var(--orange) 100%);
+    font-family: var(--fredoka);
+    font-size: calc(3rem + 1vw);
+    text-align: center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 45%;
+}
+
+#home p {
+    color: var(--orange);
+    letter-spacing: 2px;
+    font-weight: bolder;
+    font-family: var(--fredoka);
+    font-size: calc(1rem + 0.7vw);
+    text-align: center;
+}
+
+#home button{
+    padding: 8px 22px;
+    border-radius: 25px;
+    background: var(--pink);
+    text-decoration: none;
+    color: var(--pale-yellow);
+    font-size: 1.4rem;
+    font-family: var(--poppins);
+    transition: 0.3s ease;
+    cursor: pointer;
+    margin-top: 2%;
+}
+
+#home button:hover{
+    background-color: #ce103f;
+}
