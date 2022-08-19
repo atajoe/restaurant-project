@@ -101,3 +101,14 @@ body{
 #home button:hover{
     background-color: #ce103f;
 }
+
+#menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+}
+
+#contact{
+    display: none;
+}
