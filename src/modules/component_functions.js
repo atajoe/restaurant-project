@@ -16,7 +16,7 @@ function add_nav_items(){
         nav_items_section_list.classList.add('selection-list');
         const home_item = create_item('Home')
         const menu_item = create_item('Menu')
-        const contact_us_item = create_item('Contact Us')
+        const contact_us_item = create_item('Contact')
         nav_items_section_list.appendChild(home_item)
         nav_items_section_list.appendChild(menu_item)
         nav_items_section_list.appendChild(contact_us_item)
@@ -32,12 +32,14 @@ function create_item(text){
     list_item.setAttribute('id', text)
     a.setAttribute('href', "#");
     list_item.textContent = `${text}`
-    list_item.dataset.target = text
+    list_item.dataset.refid = text
     a.appendChild(list_item);
     return a
-}    
+}
 
-function create_header(){
+
+
+function create_index_page(){
     const main_content = document.getElementById('content');
     const header = create_nav('Food-on-a-Plate', 'title');
     const nav_items = add_nav_items()
@@ -45,6 +47,7 @@ function create_header(){
     header.appendChild(nav_items)
     main_content.appendChild(header)
     main_content.appendChild(tab_content)
+    add_nav_events()
     return main_content
 }
 
@@ -72,5 +75,47 @@ function add_index_content_child(id){
     return content_child
 }
 
-export default create_header;
-export {create_tab_content,add_index_content_child}
+const flip_page = (e) => {
+    if (e.target.dataset.refid === "Home"){
+        document.getElementById("home").style.display = "flex";
+        document.getElementById("menu").style.display = "none";
+        document.getElementById("contact").style.display = "none";
+    } else if (e.target.dataset.refid === "Menu"){
+        document.getElementById("home").style.display = "none";
+        document.getElementById("contact").style.display = "none";
+        document.getElementById("menu").style.display = "grid";
+    } else if (e.target.dataset.refid === "Contact"){
+        document.getElementById("home").style.display = "none";
+        document.getElementById("menu").style.display = "none";
+        document.getElementById("contact").style.display = "flex"
+    }
+    return;
+}
+
+function add_nav_events(){
+    const homebtn = document.getElementById('Home');
+    const menubtn = document.getElementById('Menu');
+    const contactbtn = document.getElementById('Contact');
+  
+
+    homebtn.addEventListener('click', (e) => {
+        console.log('Home button worked!')
+        flip_page(e)
+    });
+    menubtn.addEventListener('click', (e) => {
+        console.log('Menu button worked!')
+        flip_page(e)
+
+    });
+    contactbtn.addEventListener('click', (e) =>{
+        console.log('Contact button worked!')
+        flip_page(e)
+    })
+
+    
+}
+
+
+
+export default create_index_page;
+export {create_tab_content,add_index_content_child, flip_page, add_nav_events}

@@ -1,4 +1,4 @@
-import { create_tab_content, add_index_content_child} from "./component_functions";
+import { add_index_content_child } from "./component_functions";
 
 function menu_tab(){
     const tab_content = document.getElementById("tabbed-content")
